@@ -37,10 +37,12 @@
 - gerarNumConta - usar rand()
 
 
-Contrutor = Nome do Titular, Tipo da Conta
-Executar a funcao abrirConta();
+## Contrutor 
 
-Exibir na tela;
-o Titular
-o Número da Conta
-o Saldo atual
+- Nome do Titular, Tipo da Conta
+- Executar a funcao abrirConta();
+
+## Exibir na tela;
+- o Titular
+- o Número da Conta
+- o Saldo atual
