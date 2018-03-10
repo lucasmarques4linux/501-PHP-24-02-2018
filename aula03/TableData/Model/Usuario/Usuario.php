@@ -2,6 +2,8 @@
 
 namespace Model\Usuario;
 
+use DAO\UsuarioDAO\UsuarioDAO;
+
 class Usuario
 {
 	private $usuario;
@@ -42,5 +44,23 @@ class Usuario
 	public function setSenha($senha)
 	{
 	    return $this->senha = $senha;
+	}
+
+	public static function all(){
+		$dao = new UsuarioDAO();
+		return $dao->all();
+	}
+
+	public static function find(int $id){
+		$dao = new UsuarioDAO();
+		return $dao->find($id);
+	}
+
+	public static function save(){
+
+	}
+
+	public static function remove(){
+
 	}
 }
