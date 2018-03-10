@@ -8,8 +8,10 @@ use DAO\UsuarioDAO\UsuarioDAO;
 $lucas = new Usuario('lucasmarques','123');
 
 echo '<pre>';
-var_dump($lucas);
+// var_dump($lucas);
 
 $dao = new UsuarioDAO();
-$dao->insert($lucas);
+// $dao->insert($lucas);
+
+print_r($dao->find(1));
 

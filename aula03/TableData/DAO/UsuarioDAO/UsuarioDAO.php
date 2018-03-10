@@ -34,4 +34,33 @@ class UsuarioDAO
 			die($e->getMessage());
 		}
 	}
+
+	public function all(){
+		$sql = "SELECT * FROM usuarios";
+
+		$prepare = $this->con->query($sql);
+		$prepare->execute();
+
+		$result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+		$usuarios = [];
+
+		foreach ($result as $item) {
+			$usuarios[] = new Usuario($item['usuario'],$item['senha'],$item['id']);
+		}
+
+		return $usuarios;
+	}
+
+	public function find(int $id){
+		$sql = "SELECT * FROM usuarios WHERE id = :id";
+
+		$prepare = $this->con->prepare($sql);
+		$prepare->bindValue(":id",$id);
+		$prepare->execute();
+
+		$item = $prepare->fetch(PDO::FETCH_ASSOC);
+
+		return new Usuario($item['usuario'],$item['senha'],$item['id']);	
+	}
 }

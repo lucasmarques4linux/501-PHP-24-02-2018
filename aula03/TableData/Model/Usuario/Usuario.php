@@ -6,10 +6,22 @@ class Usuario
 {
 	private $usuario;
 	private $senha;
+	private $id;
 
-	public function __construct($usuario,$senha){
+	public function __construct($usuario,$senha,$id=null){
 		$this->usuario = $usuario;
 		$this->senha = $senha;
+		$this->id = $id;
+	}
+
+	public function getId()
+	{
+	    return $this->id;
+	}
+	
+	public function setId($id)
+	{
+	    return $this->id = $id;
 	}
 
 	public function getUsuario()
