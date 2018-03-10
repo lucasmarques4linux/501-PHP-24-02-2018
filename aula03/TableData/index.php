@@ -5,7 +5,15 @@ require 'autoload.php';
 use Model\Usuario\Usuario;
 use DAO\UsuarioDAO\UsuarioDAO;
 
-$lucas = new Usuario('lucasmarques','123');
+$lucas = new Usuario('lucascmarques','123');
+$lucas->save();
+
+// $lucascmarques = Usuario::find(19);
+// $lucascmarques->setUsuario("lucascesarmarques");
+// $lucascmarques->save();
+
+// $lucascmarques = Usuario::find(19);
+// $lucascmarques->remove();
 
 echo '<pre>';
 // var_dump($lucas);
@@ -18,4 +26,4 @@ echo '<pre>';
 // $joao = $dao->find(3);
 // echo $joao->getUsuario();
 
-print_r(Usuario::all());
+// print_r(Usuario::all());

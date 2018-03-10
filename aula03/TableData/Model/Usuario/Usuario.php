@@ -23,7 +23,7 @@ class Usuario
 	
 	public function setId($id)
 	{
-	    return $this->id = $id;
+	    $this->id = $id;
 	}
 
 	public function getUsuario()
@@ -33,7 +33,7 @@ class Usuario
 	
 	public function setUsuario($usuario)
 	{
-	    return $this->usuario = $usuario;
+	    $this->usuario = $usuario;
 	}
 
 	public function getSenha()
@@ -43,7 +43,7 @@ class Usuario
 	
 	public function setSenha($senha)
 	{
-	    return $this->senha = $senha;
+	    $this->senha = $senha;
 	}
 
 	public static function all(){
@@ -56,7 +56,7 @@ class Usuario
 		return $dao->find($id);
 	}
 
-	public static function save(){
+	public function save(){
 		$dao = new UsuarioDAO();
 		if (is_null($this->id)) {
 			$dao->insert($this);
@@ -65,7 +65,7 @@ class Usuario
 		}
 	}
 
-	public static function remove(){
+	public function remove(){
 		$dao = new UsuarioDAO();
 		$dao->delete($this);
 	}
