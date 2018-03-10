@@ -9,17 +9,18 @@ class Foo
 	}
 
 	public function __get($name){
-		return $this->dados[$name];
+		// return $this->dados[$name];
 	}
 
 	private function getDados(){
 		return $this->dados;
 	}
 }
-
+echo "<pre>";
 $a = new Foo();
-$a->nomeCompleto = "Lucas";
-$a->idade = 24;
-$a->email = "lucas@lucas";
-// echo $a->email;
+// $a->nomeCompleto = "Lucas";
+// $a->idade = 24;
+// $a->email = "lucas@lucas";
+echo $a->email;
 // print_r( $a->getDados('Lucas') );
+// var_dump($a);

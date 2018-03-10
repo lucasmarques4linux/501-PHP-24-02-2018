@@ -1,0 +1,23 @@
+sudo su
+mysql
+
+CREATE USER 'nome'@'localhost' IDENTIFIED BY '@da4linux';
+
+GRANT ALL PRIVILEGES ON *.* TO 'nome'@'localhost';
+
+CREATE DATABASE aula03;
+
+USE aula03;
+
+MariaDb[aula03]>
+
+
+CREATE TABLE usuarios(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	usuario VARCHAR(100) NOT NULL UNIQUE,
+	senha VARCHAR(8) NOT NULL
+);
+
+describe usuarios;
+
+SELECT * FROM usuarios;

@@ -1,0 +1,27 @@
+sudo su
+su postgres
+psql
+
+CREATE DATABASE aula03;
+
+CREATE USER nome PASSWORD '123';
+
+ALTER DATABASE aula03 OWNER TO nome;
+\q
+
+exit
+exit
+
+psql -h localhost -U nome aula03
+
+aula03=>
+
+CREATE TABLE usuarios(
+	id SERIAL PRIMARY KEY,
+	usuario VARCHAR(100) NOT NULL UNIQUE,
+	senha VARCHAR(8) NOT NULL
+);
+
+\d usuarios
+
+SELECT * FROM usuarios;
