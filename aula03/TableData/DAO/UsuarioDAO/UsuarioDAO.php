@@ -38,10 +38,10 @@ class UsuarioDAO
 	public function all(){
 		$sql = "SELECT * FROM usuarios";
 
-		$prepare = $this->con->query($sql);
-		$prepare->execute();
+		$stmt = $this->con->query($sql);
+		$stmt->execute();
 
-		$result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		$usuarios = [];
 
@@ -55,12 +55,67 @@ class UsuarioDAO
 	public function find(int $id){
 		$sql = "SELECT * FROM usuarios WHERE id = :id";
 
-		$prepare = $this->con->prepare($sql);
-		$prepare->bindValue(":id",$id);
-		$prepare->execute();
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(":id",$id);
+		$stmt->execute();
 
-		$item = $prepare->fetch(PDO::FETCH_ASSOC);
+		$item = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		return new Usuario($item['usuario'],$item['senha'],$item['id']);	
+	}
+
+	public function update(Usuario $usuario){
+		try {
+			$this->con->beginTransaction();
+
+			$sql = "UPDATE usuarios SET usuario=:usuario,senha=:senha WHERE id=:id";
+
+			$stmt = $this->con->prepare($sql);
+
+			$stmt->bindValue(":usuario",$usuario->getUsuario());
+			$stmt->bindValue(":senha",$usuario->getSenha());
+			$stmt->bindValue(":id",$usuario->getId());
+
+			$stmt->execute();
+
+			$this->con->commit();
+		} catch (PDOException $e) {
+			$this->con->rollback();
+			die($e->getMessage());
+		}
+	}
+	public function delete(Usuario $usuario){
+		try {
+			$this->con->beginTransaction();
+
+			$sql = "DELETE FROM usuarios WHERE id = :id";
+
+			$stmt = $this->con->prepare($sql);
+			$stmt->bindValue(":id", $usuario->getId());
+
+			$stmt->execute();
+
+			$this->con->commit();
+		} catch (PDOException $e) {
+			$this->con->rollback();
+			die($e->getMessage());
+		}
+	}
+	public function delete2(int $id){
+		try {
+			$this->con->beginTransaction();
+
+			$sql = "DELETE FROM usuarios WHERE id = :id";
+
+			$stmt = $this->con->prepare($sql);
+			$stmt->bindValue(":id", $id);
+
+			$stmt->execute();
+			
+			$this->con->commit();
+		} catch (PDOException $e) {
+			$this->con->rollback();
+			die($e->getMessage());
+		}
 	}
 }

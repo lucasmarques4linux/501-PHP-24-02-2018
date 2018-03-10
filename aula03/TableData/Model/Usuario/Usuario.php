@@ -57,10 +57,20 @@ class Usuario
 	}
 
 	public static function save(){
-
+		$dao = new UsuarioDAO();
+		if (is_null($this->id)) {
+			$dao->insert($this);
+		} else {
+			$dao->update($this);
+		}
 	}
 
 	public static function remove(){
-
+		$dao = new UsuarioDAO();
+		$dao->delete($this);
+	}
+	public static function remove2(int $id){
+		$dao = new UsuarioDAO();
+		$dao->delete2($id);
 	}
 }
