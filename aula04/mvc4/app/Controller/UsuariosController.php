@@ -16,7 +16,8 @@ class UsuariosController
 	}
 
 	public function index(){
-		echo "index";
+		$usuarios = $this->usuariosModel->all();
+		$this->viewModel->render('usuarios/index',['usuarios' => $usuarios]);
 	}
 	public function edit($id){
 		echo "edit $id";
@@ -25,10 +26,11 @@ class UsuariosController
 		echo "update $id";
 	}
 	public function new(){
-		echo "new";
+		$this->viewModel->render('usuarios/new');
 	}
 	public function create(){
-		echo "create";
+		$this->usuariosModel->insert($_POST);
+		header('Location:?r=usuarios');
 	}
 	public function delete($id){
 		echo "delete $id";

@@ -6,4 +6,4 @@ const DBUSER = 'lucas';
 const DBPASS = '123';
 const DBNAME = 'aula04';
 const DBHOST = 'localhost';
-const DSN    = 'pgsql:host='.DBHOST.';dbname ='.DBNAME;
+const DBDSN  = 'pgsql:host='.DBHOST.';dbname ='.DBNAME;
