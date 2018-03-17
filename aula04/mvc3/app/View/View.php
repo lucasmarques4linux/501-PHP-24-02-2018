@@ -6,6 +6,11 @@ class View
 {
 	public function render(string $view,array $dados){
 		extract($dados);
-		include '../../src/' . $view . '.php';
+		$file = BASEDIR . '/src/' . $view . '.php';
+		if (file_exists($file)) {
+			require $file;
+	    } else {
+	        echo $file;
+	    }
 	}
 }

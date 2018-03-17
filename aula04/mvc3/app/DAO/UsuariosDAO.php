@@ -2,9 +2,10 @@
 
 namespace DAO;
 
-use Conexao;
+use DAO\Conexao;
+use PDO;
 
-class UsuarioDAO
+class UsuariosDAO
 {
 	private $con = null;
 

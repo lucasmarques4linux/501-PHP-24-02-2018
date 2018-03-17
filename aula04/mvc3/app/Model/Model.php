@@ -15,7 +15,7 @@ class Model
 		$this->postsDAO = new PostsDAO();
 	}
 
-	public function getUsuario(){
+	public function getUsuarios(){
 		return $this->usuariosDAO->all();
 	}
 	public function getPosts(){

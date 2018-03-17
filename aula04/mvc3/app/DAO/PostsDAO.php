@@ -2,7 +2,8 @@
 
 namespace DAO;
 
-use Conexao;
+use DAO\Conexao;
+use PDO;
 
 class PostsDAO
 {
