@@ -19,6 +19,7 @@ class LoginController
 			header('Location:?r=login/login');
 		}
 	}
+	
 	public function login(){
 		$this->viewModel->render('login/login');
 	}

@@ -41,11 +41,26 @@ class Tarefas
 
 	public function getStatus()
 	{
-	    return $this->status;
+		if (array_key_exists($this->status, self::status())) {
+		    	return self::status()[$this->status];			
+				// $status = self::status();
+				// return $status[$this->status];
+		    }    
 	}
 	
 	public function setStatus($status)
 	{
 	    return $this->status = $status;
+	}
+
+	public static function status(){
+		$status = [
+			'todo' => 'À Fazer',
+			'wip'  => 'Fazendo',
+			'done' => 'Feito',
+			'backlog' => 'Proxima Semana'
+		];
+
+		return $status;
 	}
 }

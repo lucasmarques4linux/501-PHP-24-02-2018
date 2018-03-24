@@ -3,7 +3,6 @@
 namespace Model;
 
 use Model\Mapper\TarefasMapper;
-use Model\UsuariosModel;
 
 class TarefasModel
 {
@@ -14,17 +13,20 @@ class TarefasModel
 		$this->usuariosModel = new UsuariosModel();
 	}
 
-	public function all(){
-		$id = $this->usuariosModel->userLogged()->getId();
+	public function all($id){
 		return $this->tarefasMapper->all($id);
 	}
 	public function find($id){
 		return $this->tarefasMapper->find($id);
 	}
-	public function insert(array $dados){
-		$this->tarefasMapper->insert($dados);
+	public function insert($id,array $dados){
+		$this->tarefasMapper->insert($id, $dados);
 	}
 	public function update($id, array $dados){
 		$this->tarefasMapper->update($id,$dados);
+	}
+
+	public function findWhere($where){
+		return $this->tarefasMapper->findWhere($where);
 	}
 }

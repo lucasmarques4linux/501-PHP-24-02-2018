@@ -20,16 +20,37 @@ class TarefasDAO
 		$stmt->bindValue(":id_usuario",$id);
 		$stmt->execute();
 
-		$colection = [];
+		$collection = [];
 
 		while ($register = $stmt->fetchObject($this->entity)) {
-			$colection[] = $register;
+			$collection[] = $register;
 		}
 
-		return $colection;
+		return $collection;
 	}
 
-	public function insert(array $dados){
+	public function findWhere($where){
+		// $sql = "SELECT * FROM tb_tarefas WHERE :key = :value ORDER BY id ";
+
+		// $stmt = $this->con->prepare($sql);
+		// $stmt->bindValue(":key",$where['key']);
+		// $stmt->bindValue(":value",$where['value']);
+		// $stmt->execute();
+
+		$sql = "SELECT * FROM tb_tarefas WHERE {$where} ORDER BY id ";
+
+		$stmt = $this->con->query($sql);
+
+		$collection = [];
+
+		while ($register = $stmt->fetchObject($this->entity)) {
+			$collection[] = $register;
+		}
+
+		return $collection;
+	}
+
+	public function insert($id,array $dados){
 		try {
 			$this->con->beginTransaction();
 
@@ -38,7 +59,7 @@ class TarefasDAO
 			$stmt = $this->con->prepare($sql);
 
 			$params = [
-				':id_usuario' => $dados['id_usuario'],
+				':id_usuario' => $id,
 				':description' => $dados['descricao'],
 				':status' => $dados['status']
 			];

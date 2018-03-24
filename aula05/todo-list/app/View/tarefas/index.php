@@ -1,6 +1,6 @@
 <h2>Lista de Tarefas</h2>
 
-<table>
+<table class="table">
 	<tr>
 		<th>Tarefa</th>
 		<th>Status</th>
@@ -13,4 +13,4 @@
 <?php endforeach; ?>
 </table>
 
-<a href="?r=tarefas/new">Novo</a>
+<a href="?r=tarefas/new" class="btn btn-sm btn-primary">Novo</a>

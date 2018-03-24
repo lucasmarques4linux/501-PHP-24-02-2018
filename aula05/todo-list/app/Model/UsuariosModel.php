@@ -22,7 +22,7 @@ class UsuariosModel
 		return false;
 	}
 
-	public function userLogged(){
+	public static function userLog(){
 		return $_SESSION['usuario'];
 	}
 

@@ -1,10 +1,10 @@
 <h2>Nova Tarefa</h2>
 <form action="?r=tarefas/create" method="POST">
-	<input type="hidden" name="id_usuario">
-	<p>Tarefa:</p>
-	<input type="text" name="descricao" required>
-	<p>Status:</p>
-	<input type="text" name="status" required>
-	<p><input type="submit" value="Salvar"></p>
+	<p>Tarefa:<input type="text" name="descricao" required></p>
+	<p>Status: <select name="status">
+	<?php foreach($status as $key => $value): ?>
+		<option value="<?=$key?>"><?=$value?></option>
+	<?php endforeach; ?>
+	</select> </p>	
+	<p><a class="btn btn-warning" href="?r=tarefas">Voltar</a> <input type="submit" class="btn btn-success" value="Salvar"></p>
 </form>
-<a href="?r=tarefas">Voltar</a>
