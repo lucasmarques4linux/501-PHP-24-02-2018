@@ -31,11 +31,12 @@ class TarefasDAO
 		try {
 			$this->con->beginTransaction();
 
-			$sql = "INSERT INTO tb_tarefas(descricao,status) VALUES(:description,:status)";
+			$sql = "INSERT INTO tb_tarefas(id_usuario,descricao,status) VALUES(:id_usuario,:description,:status)";
 
 			$stmt = $this->con->prepare($sql);
 
 			$params = [
+				':id_usuario' => $dados['id_usuario'],
 				':description' => $dados['descricao'],
 				':status' => $dados['status']
 			];

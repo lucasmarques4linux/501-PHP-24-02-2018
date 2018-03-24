@@ -23,6 +23,7 @@ class TarefasController
 		$this->viewModel->render('tarefas/new');	
 	}
 	public function create(){
+		print_r($_POST);
 		$this->tarefasModel->insert($_POST);
 		header('Location:?r=tarefas');
 	}
