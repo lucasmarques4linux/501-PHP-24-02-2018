@@ -11,6 +11,7 @@ class UsuariosController
 	private $viewModel;
 
 	public function __construct(){
+		LoginController::isLogado();
 		$this->usuariosModel = new UsuariosModel();
 		$this->viewModel = new ViewModel();
 	}

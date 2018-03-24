@@ -57,6 +57,7 @@ class UsuariosDAO
 
 		$stmt = $this->con->prepare($sql);
 		$stmt->bindValue(":id",$id);
+		$stmt->execute();
 
 		$register = $stmt->fetchObject($this->entity);
 
@@ -82,5 +83,18 @@ class UsuariosDAO
 			$this->con->rollback();
 			die($e->getMessage());
 		}
+	}
+
+	public function login(array $dados){
+		$sql = "SELECT * FROM tb_usuarios WHERE email = :email AND senha = :senha";
+	
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(":email",$dados['email']);
+		$stmt->bindValue(":senha",$dados['senha']);
+		$stmt->execute();
+
+		$register = $stmt->fetchObject($this->entity);
+
+		return $register;
 	}
 }

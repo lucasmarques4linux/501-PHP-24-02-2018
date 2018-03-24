@@ -1,6 +1,6 @@
 <h2>Nova Tarefa</h2>
 <form action="?r=tarefas/create" method="POST">
-	<input type="hidden" name="id_usuario" value="1">
+	<input type="hidden" name="id_usuario">
 	<p>Tarefa:</p>
 	<input type="text" name="descricao" required>
 	<p>Status:</p>

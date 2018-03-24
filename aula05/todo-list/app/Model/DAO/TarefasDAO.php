@@ -13,10 +13,12 @@ class TarefasDAO
 		$this->con = Conexao::getInstance();
 	}
 
-	public function all(){
-		$sql = "SELECT * FROM tb_tarefas ORDER BY id";
+	public function all($id){
+		$sql = "SELECT * FROM tb_tarefas WHERE id_usuario = :id_usuario  ORDER BY id ";
 
-		$stmt = $this->con->query($sql);
+		$stmt = $this->con->prepare($sql);
+		$stmt->bindValue(":id_usuario",$id);
+		$stmt->execute();
 
 		$colection = [];
 

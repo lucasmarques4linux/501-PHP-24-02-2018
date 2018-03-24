@@ -5,7 +5,7 @@ namespace Lib\FrontController;
 class FrontController
 {
 	private $routes;
-	private $routeDefault = 'usuarios';
+	private $routeDefault = 'tarefas';
 
 	public function setRoutes(array $routes){
 		$this->routes = $routes;

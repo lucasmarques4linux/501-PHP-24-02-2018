@@ -4,6 +4,7 @@ namespace Controller;
 
 use Model\TarefasModel;
 use Lib\ViewModel\ViewModel;
+use Controller\LoginController;
 
 class TarefasController
 {
@@ -11,10 +12,12 @@ class TarefasController
 	private $viewModel;
 
 	public function __construct(){
+		LoginController::isLogado();
 		$this->tarefasModel = new TarefasModel();
 		$this->viewModel = new ViewModel();
 	}
 	public function index(){
+
 		$tarefas = $this->tarefasModel->all();
 		$this->viewModel->render('tarefas/index',
 			['tarefas' => $tarefas]);
