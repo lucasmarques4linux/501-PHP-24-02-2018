@@ -72,7 +72,7 @@ CREATE TABLE tb_usuarios(
 CREATE TABLE tb_tarefas(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_usuario INT NOT NULL REFERENCES tb_usuarios(id),
-	descricao VARCHAR(255) NOT NULL,
+	descricao VARCHAR(100) NOT NULL,
 	status VARCHAR(50) NOT NULL
 );
 ```
@@ -95,6 +95,11 @@ CREATE TABLE tb_tarefas(
 ```
 
 # PHP
+
+## Atualizar os repositórios
+```
+sudo apt update
+```
 ## Instalando driver MySQL
 ```
 sudo apt install php7.0-mysql
