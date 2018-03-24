@@ -33,3 +33,8 @@
 </nav>
 
 <div class="container">
+<?php if (isset($_SESSION['logado'])) : ?>
+<div class="page-header">
+	<h3>Olá,<?=$_SESSION['usuario']->getNome() ?></h3>
+</div>
+<?php endif; ?>

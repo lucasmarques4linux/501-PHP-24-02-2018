@@ -42,9 +42,18 @@ class TarefasController
 		header('Location:?r=tarefas');
 	}
 	public function edit($id){
-		echo 'edit' . $id;
+		$where = "id={$id}";
+	    $tarefas = $this->tarefasModel->findWhere($where);
+	    $tarefa = $tarefas[0];
+		$status = Tarefas::status();
+		$this->viewModel->render('tarefas/edit',
+			[
+				'status' => $status,
+				'tarefa' => $tarefa
+			]);	
 	}
 	public function update($id){
-		echo 'update' . $id;
+		$this->tarefasModel->update($id,$_POST);
+		header('Location:?r=tarefas');
 	}
 }

@@ -1,8 +1,6 @@
 <h2>Login de Usuário</h2>
 <form action="?r=login/logginin" method="POST">
-	<p>Email:</p>
-	<input type="email" name="email" required>
-	<p>Senha:</p>
-	<input type="password" name="senha" required>
-	<p><input type="submit" value="Login"></p>
+	<p>Email:<input type="email" name="email" required></p>	
+	<p>Senha:<input type="password" name="senha" required></p>	
+	<p><input type="submit" value="Login" class="btn btn-default"></p>
 </form>

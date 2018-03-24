@@ -16,9 +16,6 @@ class TarefasModel
 	public function all($id){
 		return $this->tarefasMapper->all($id);
 	}
-	public function find($id){
-		return $this->tarefasMapper->find($id);
-	}
 	public function insert($id,array $dados){
 		$this->tarefasMapper->insert($id, $dados);
 	}

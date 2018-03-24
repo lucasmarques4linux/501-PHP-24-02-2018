@@ -1,4 +1,4 @@
-<h2>Nova Tarefa</h2>
+<p>Nova Tarefa</p>
 <form action="?r=tarefas/create" method="POST">
 	<p>Tarefa:<input type="text" name="descricao" required></p>
 	<p>Status: <select name="status">

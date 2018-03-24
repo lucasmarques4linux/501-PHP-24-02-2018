@@ -74,4 +74,25 @@ class TarefasDAO
 			echo "Erro: " . $e->getMessage();
 		}
 	}
+
+	public function update($id,$dados){
+		try {
+			$this->con->beginTransaction();
+
+			$sql = "UPDATE tb_tarefas SET descricao=:description,status=:status WHERE id=:id";
+
+			$stmt = $this->con->prepare($sql);
+
+			$stmt->bindValue(":description",$dados['descricao']);
+			$stmt->bindValue(":status",$dados['status']);
+			$stmt->bindValue(":id",$id);
+
+			$stmt->execute();
+
+			$this->con->commit();
+		} catch (PDOException $e) {
+			$this->con->rollback();
+			die($e->getMessage());
+		}
+	}
 }
